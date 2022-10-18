@@ -7,6 +7,8 @@
 #	The parent pathway name can be found if the ID on the file name is looked up in the file
 #	Reactome_TopLevel_Pathways.tsv.	
 
+##################################
+
 
 for id in $(gawk '{ if(NR>1){ gsub(/\.[[:digit:]]+/, "", $1); print $1 }}' Reactome_TopLevel_Pathways.tsv); 
 	do child_ids=$(grep -E "$id" ReactomePathwaysRelation.txt | cut -f2); 
